@@ -123,16 +123,10 @@ median(total.steps)
 ## [1] 10766.19
 ```
 
-Mean and median values are higher after imputing missing data. The reason is
-that in the original data, there are some days with `steps` values `NA` for 
-any `interval`. The total number of steps taken in such days are set to 0s by
-default. However, after replacing missing `steps` values with the mean `steps`
-of associated `interval` value, these 0 values are removed from the histogram
-of total number of steps taken each day.
+Mean and median values are higher after imputing missing data. The reason is that in the original data, there are some days with `steps` values `NA` for any `interval`. The total number of steps taken in such days are set to 0s by default. However, after replacing missing `steps` values with the mean `steps` of associated `interval` value, these 0 values are removed from the histogram of total number of steps taken each day.
 
 ## Are there differences in activity patterns between weekdays and weekends?
-First, let's find the day of the week for each measurement in the dataset. In
-this part, we use the dataset with the filled-in values.
+First, let's find the day of the week for each measurement in the dataset. In this part, we use the dataset with the filled-in values.
 
 
 ```r
@@ -149,8 +143,7 @@ filled.data$date <- as.Date(filled.data$date)
 filled.data$day <- sapply(filled.data$date, FUN=weekday.or.weekend)
 ```
 
-Now, let's make a panel plot containing plots of average number of steps taken
-on weekdays and weekends.
+Now, let's make a panel plot containing plots of average number of steps taken on weekdays and weekends.
 
 ```r
 averages <- aggregate(steps ~ interval + day, data=filled.data, mean)
